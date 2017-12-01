@@ -1,2 +1,5 @@
-gunicorn
-Flask
+coverage==3.7.1
+mock
+nose
+six
+sure<1.2.4
