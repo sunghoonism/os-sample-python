@@ -9,8 +9,13 @@ data = '{"body":"[[Naver]](http:naver.com) You have a new Pizza order.","connect
 
 @application.route("/")
 def hello():
+    if request.method == 'POST':
+        user_input = request.form['user_input']
+        session['foo'] = 'bar'
+    elif request.method == 'GET':
+        session['foo'] = 'macarena'
+    return session['foo']
     
-    return requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
 
 if __name__ == "__main__":
     application.run()
