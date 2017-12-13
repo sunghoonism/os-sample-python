@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, session
 application = Flask(__name__)
 
 headers = {
