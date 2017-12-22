@@ -9,9 +9,16 @@ headers = {
 data = 'from alien'
 @application.route("/")
 def hello():
-    requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
-    return 'foo'
-    
+    return 'Hello'
+
+@application.route("/webhook", methods=["POST"])
+def webhook():
+    if request.method == 'POST'
+        print("POST!")
+        requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
+            return 'foo'
+    return 'error'
+
 
 if __name__ == "__main__":
     application.run()
