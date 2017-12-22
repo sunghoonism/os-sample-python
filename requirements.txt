@@ -1,3 +1,6 @@
 gunicorn
 Flask
 request
+flask_restful
+Resource
+Api
