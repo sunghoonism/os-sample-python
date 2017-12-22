@@ -11,11 +11,12 @@ headers = {
 def hello():
     return 'Hello'
 
-@application.route('/webhook', methods=['GET','POST'])
+@application.route('/webhook', methods=['POST'])
 def webhook():
-    print(request.form['text'])
-    print('POST!')
-    data='{{"text":"{} {}"}}'.format(request.form['text'], request.form['text'])
+    #print(request.form['text'])
+    #print('POST!')
+    #data='{{"text":"{} {}"}}'.format(request.form['text'], request.form['text'])
+    data='from alien'
     requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
 
     return 'text'
