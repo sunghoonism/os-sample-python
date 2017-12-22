@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, response
 application = Flask(__name__)
 
 headers = {
@@ -11,13 +11,14 @@ data = 'from alien'
 def hello():
     return 'Hello'
 
-@application.route("/webhook", methods=["POST"])
+@application.route('/webhook', methods=['GET','POST'])
 def webhook():
-    if request.method == 'POST'
-        print("POST!")
-        requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
-            return 'foo'
-    return 'error'
+    print(request.form['text'])
+    print('POST!')
+    text='{{"text":"{} {}"}}'.format(request.form['text'], request.form['text'])
+    #requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
+
+    return 'text'
 
 
 if __name__ == "__main__":
