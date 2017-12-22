@@ -9,7 +9,7 @@ headers = {
 #data = 'from alien'
 @application.route("/")
 def hello():
-    return 'Helloo'
+    return 'Hello'
 
 @application.route('/webhook', methods=['GET','POST'])
 def webhook():
