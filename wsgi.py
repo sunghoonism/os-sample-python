@@ -26,20 +26,16 @@ class TodoSimple(Resource):
      >>> get('http://localhost:5000/todo2').json
      {u'todo2': u'Change my breakpads'}
     """
-    def get(self, todo_id):
-        return {todo_id: todos[todo_id]}
+    def get(self):
+        return {'hel': 'lo'}
 
-    def put(self, todo_id):
-        todos[todo_id] = request.form['data']
-        return {todo_id: todos[todo_id]}
-
-api.add_resource(TodoSimple, '/<string:todo_id>')
+api.add_resource(TodoSimple, '/webhook')
 
 
 @app.route("/")
 def hello():
     return 'Hello'
-
+"""
 @app.route('/webhook', methods=['POST'])
 def webhook():
     if method=='POST':
@@ -55,7 +51,7 @@ def webhook():
         requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
     else:
         return 'text'
-
+"""
 
 if __name__ == "__main__":
     app.run()
