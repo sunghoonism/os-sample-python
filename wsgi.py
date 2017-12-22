@@ -20,7 +20,7 @@ def webhook():
     response=requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
     print(response.text)
     print(response.status_code, response.reason)
-    return 'text'
+    return 'textyo'
 
 
 if __name__ == "__main__":
