@@ -6,7 +6,7 @@ application = Flask(__name__)
 def hello():
     return 'Hello'
 
-@application.route('/webhook', methods=['POST'])
+@application.route('/webhook')
 def webhook():
     headers = {
     'Accept': 'application/vnd.tosslab.jandi-v2+json',
