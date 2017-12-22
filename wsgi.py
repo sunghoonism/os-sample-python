@@ -18,7 +18,7 @@ def webhook():
     data='{{"text":"{} {}"}}'.format(request.form['text'], request.form['text'])
     #data={'body':'I am from webhook'}
     #response=requests.post('https://wh.jandi.com/connect-api/webhook/11495160/86d7ab45df200b89fdedb99158472833', headers=headers, data=data)
-    return data
+    return 'text'
 
 
 if __name__ == "__main__":
