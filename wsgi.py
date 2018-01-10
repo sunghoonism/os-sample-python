@@ -4,7 +4,11 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-todos = {}
+TODOS = {
+    'todo1': {'task': 'build an API'},
+    'todo2': {'task': '?????'},
+    'todo3': {'task': 'profit!'},
+}
 
 class TodoSimple(Resource):
     """
@@ -26,10 +30,14 @@ class TodoSimple(Resource):
      >>> get('http://localhost:5000/todo2').json
      {u'todo2': u'Change my breakpads'}
     """
-    def get(self):
-        return {'hel': 'lo'}
+    def get(self, todo_id):
+        return {todo_id: todos[todo_id]}
 
-api.add_resource(TodoSimple, '/webhook')
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
+
+api.add_resource(TodoSimple, '/<string:todo_id>')
 
 
 @app.route("/")
@@ -54,4 +62,4 @@ def webhook():
 """
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
